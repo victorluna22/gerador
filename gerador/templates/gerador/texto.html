@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ imovel.nome }}</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+
+	<style type="text/css">
+		* {margin:0; padding: 0; font-size: 18px; font-family: "Lato", arial, sans-serif;}
+		body > header {text-align: center; margin: 20px 0;}
+		section {max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+		header { padding-top:1px;}
+		h2 {float: right; }
+		h3 {margin-top: 50px; }
+		h2,h3,h2 span {font-size: 20px}
+		h2,h3,h4 {font-weight: 100;}
+		h4 {margin: 40px 90px 20px;font-style: italic;}
+		span {display: block}
+		p {margin: 20px;}
+		article span {text-align: center; font-size: 14px;}
+		
+		article span:nth-child(3) {margin-top: 60px;}
+		article span:nth-child(4) {font-weight: 800; font-size: 18px;margin: 5px; text-transform: capitalize;}
+		ul {border: 1px solid #000;margin: 80px 0;}
+		ul li {list-style-type:none;}
+	</style>
+</head>
+<body>
+<header>
+	<h1><img src="{{ STATIC_URL}}img/logo.png" alt=""></h1>
+</header>
+
+<section>
+	<header>
+		<h2>Camaragibe, {{today}}</h2>
+
+		<h3>Iim (a) Senhor (a)
+			<span>Endereço: {%if imovel.logradouro%}{{  imovel.logradouro}},{%endif%} {%if imovel.numero%}{{ imovel.numero }},{%endif%} {%if imovel.complemento%}{{ imovel.complemento }},{%endif%} {%if imovel.bairro%}{{imovel.bairro}},{%endif%} {%if imovel.cidade%}{{ imovel.cidade }}{%endif%} {%if imovel.estado%}- {{ imovel.estado }}{%endif%}</span>
+		</h3>
+
+
+		<h4>Prezado (a) Senhor (a),</h4>
+	</header>
+		
+	<article>
+		<p>Convidamos Vossa Senhoria para, no prazo de 05 (cinco) dias, comparecer em nosso escritório para tratarmos de assunto de seu estrito interesse, especificamente quanto à regularização do seu imóvel, podendo proceder ao agendamento das 08h às 18h.</p>
+
+		<p>No aguardo de sua atenção e compreensão face ao acima exposto, apresentamos nossos cordiais cumprimentos.</p>
+
+		<ul>
+			<li><b>AGENDAMENTO</b></li>
+			<li><b>Endereços:</b> Av. Ersina Lapenda, nº 200, 1ª Andar, Timbi, Camaragibe-PE.</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Estrada de Aldeia, nº 100, Km 4,5, Aldeia, Camaragibe-PE.</li>
+			<li><b>Telefones:</b> (81) 3458-2248 | 3312-0311</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(81) 9962-1974 | 9680-8759 | 9525-3432 | 8609-9202</li>
+		</ul>
+		<!-- <br /> -->
+
+		<!-- <span>___________________________________________</span> -->
+		<span>{{ imovel.advogado.nome }}</span>
+		<span>OAB/PE{{ imovel.advogado.oab }}</span>
+	</article>
+
+<img style="width:554px;height:24px;margin-top:100px;" src="{{ STATIC_URL }}img/rodape.png">	
+</section>
+
+</body>
+</html>
