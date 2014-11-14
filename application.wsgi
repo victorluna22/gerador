@@ -1,14 +1,15 @@
-"""
-WSGI config for oferclub project.
 
-It exposes the WSGI callable as a module-level variable named ``application``.
 
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
-"""
-
-import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gerador_carta.settings")
-
+# file configuration of apache mod_wsgi
+from django.conf import settings
+import os, sys, site
+from os.path import abspath, join, dirname
+project_name = "oferclub"
+root_dir = abspath(join(dirname(__file__), '..'))
+sys.path.append(root_dir)
+sys.path.append(join(root_dir, project_name))
+os.environ["DJANGO_SETTINGS_MODULE"]= 'gerador_carta.settings'
+import django.core.handlers.wsgi
+#application = django.core.handlers.wsgi.WSGIHandler()
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
